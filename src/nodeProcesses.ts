@@ -1,6 +1,8 @@
 import psList, { ProcessDescriptor } from "ps-list";
 import { fetchAppName, processDirectory } from "./forcedAwait";
 import Process from "./types/Process";
+import { NODE_PROCESSES_NAME } from ".";
+import { filterNodeProcesses } from "./lib";
 
 /**
  * Get node processes
@@ -9,9 +11,9 @@ import Process from "./types/Process";
  */
 export async function nodeProcesses(callback: (processes: Array<ProcessDescriptor>) => void) {
     const pl = await psList();
-    const nodeProcessesName = ["node", "nodemon", "ts-node"]
     
-    const nodeProcs = pl.filter((process) => nodeProcessesName.includes(process.name));
+    // Get only node processes
+    const nodeProcs = filterNodeProcesses(pl);
     
     callback(nodeProcs);
 }
@@ -23,9 +25,9 @@ export async function nodeProcesses(callback: (processes: Array<ProcessDescripto
  */
 export async function randomAccessNodeProcesses(callback: (process: Process | ProcessDescriptor) => void) {
     const pl = await psList();
-    const nodeProcessesName = ["node", "nodemon", "ts-node"]
     
-    const nodeProcs = pl.filter((process) => nodeProcessesName.includes(process.name));
+    // Get only node processes
+    const nodeProcs = filterNodeProcesses(pl);
     
     nodeProcs.map((proc) => {
         processDirectory(proc.pid, (err: any, directory: string) => {

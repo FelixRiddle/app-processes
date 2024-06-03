@@ -3,6 +3,8 @@ import fs from "fs";
 import os from "os";
 import { exec } from "child_process";
 import Process from "./types/Process";
+import { NODE_PROCESSES_NAME } from ".";
+import { filterNodeProcesses } from "./lib";
 
 /**
  * Get app name
@@ -91,9 +93,9 @@ export function forcedAwaitCwdRetrieval(processes: Array<ProcessDescriptor>, cal
  */
 export async function nodeProcessesForcedAwait(callback: (appProcesses: Array<Process | ProcessDescriptor>) => void) {
     const pl = await psList();
-    const nodeProcessesName = ["node", "nodemon", "ts-node"]
     
-    const nodeProcs = pl.filter((process) => nodeProcessesName.includes(process.name));
+    // Get only node processes
+    const nodeProcs = filterNodeProcesses(pl);
     
     // Force the await of all processes retrieval
     forcedAwaitCwdRetrieval(nodeProcs, callback);
