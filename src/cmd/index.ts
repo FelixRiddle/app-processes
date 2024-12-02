@@ -1,15 +1,11 @@
-import { nodeProcessesForcedAwait } from "../forcedAwait";
-import { shellProcesses } from "../nodeProcesses";
+import { getNodeProcesses } from "@/lib";
 
-(async () => {
-    console.log(`Shell processes`);
-    
-    // Shell processses
-    await shellProcesses();
-    
-    console.log(`\nNode processses`);
-    
-    await nodeProcessesForcedAwait((procs) => {
-        console.log(`Node processes: `, procs);
-    })
-})();
+/**
+ * Cmd main
+ */
+export default async function cmdMain() {
+	// Node processses
+	console.log(`\nNode processses`);
+	const nodeProcesses = await getNodeProcesses();
+	console.log(nodeProcesses);
+}

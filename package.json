@@ -1,6 +1,6 @@
 {
 	"name": "felixriddle.app-processes",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Get list of running app processes",
 	"type": "module",
 	"main": "./dist/index.js",
@@ -10,20 +10,32 @@
 		"dist"
 	],
 	"scripts": {
-		"start": "tsx src/cmd/index.ts",
-		"test": "tsx src/cmd/index.ts --test",
-		"dev": "tsx src/cmd/index.ts",
+		"start": "tsx src/main.ts",
+		"test": "jest",
+		"dev": "tsx src/main.ts",
 		"build": "tsup"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"@babel/core": "^7.26.0",
+		"@babel/preset-env": "^7.26.0",
+		"@babel/preset-typescript": "^7.26.0",
+		"@types/argparse": "^2.0.16",
+		"@types/express": "^4.17.21",
+		"@types/jest": "^29.5.14",
+		"babel-jest": "^29.7.0",
+		"express": "^4.19.2",
+		"jest": "^29.7.0",
+		"ts-jest": "^29.2.5",
+		"ts-node": "^10.9.2",
 		"tsup": "^8.0.2",
 		"tsx": "^4.11.0",
 		"typescript": "^5.4.5"
 	},
 	"dependencies": {
-		"ps-list": "^8.1.1"
+		"ps-list": "^8.1.1",
+		"systeminformation": "^5.23.5"
 	}
 }
