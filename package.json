@@ -1,6 +1,6 @@
 {
 	"name": "felixriddle.app-processes",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Get list of running app processes",
 	"type": "module",
 	"main": "./dist/index.js",
