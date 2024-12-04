@@ -1,12 +1,14 @@
 {
 	"compilerOptions": {
-		"target": "ES6", // Specifies the ECMAScript version
-		"module": "commonjs", // Use ES Modules instead of CommonJS
-		"moduleResolution": "node", // Resolves modules using Node.js rules
-		"esModuleInterop": true, // Enables compatibility with CommonJS modules
+		"target": "ES2016",
+		"moduleResolution": "node",
+		"module": "ESNext",
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,
 		"skipLibCheck": true,
+		"types": ["jest"],
 		"paths": {
 			"@/*": ["./src/*"]
 		}
