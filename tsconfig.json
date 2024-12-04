@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
-		"target": "ES2016", // Specifies the ECMAScript version
-		"module": "ESNext", // Use ES Modules instead of CommonJS
+		"target": "ES6", // Specifies the ECMAScript version
+		"module": "commonjs", // Use ES Modules instead of CommonJS
 		"moduleResolution": "node", // Resolves modules using Node.js rules
 		"esModuleInterop": true, // Enables compatibility with CommonJS modules
 		"forceConsistentCasingInFileNames": true,
